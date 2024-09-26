@@ -87,6 +87,14 @@ public class TestBase {
 				options.addArguments("--window-size=1920,1080"); // Optional: Set window size for better page rendering
 			}
 
+			options.addArguments("--disable-infobars"); // Prevents the "Chrome is being controlled" message
+			options.addArguments("credentials_enable_service=false"); // Disable password saving
+			options.addArguments("profile.password_manager_enabled=false"); // Disable password manager
+			
+			options.addArguments("--disable-gpu"); // Disable GPU hardware acceleration
+			options.addArguments("--no-sandbox"); // Bypass OS security model
+			options.addArguments("--disable-dev-shm-usage"); // Overcome limited resource problems
+
 			options.setExperimentalOption("excludeSwitches", new String[] { "enable-automation" });
 			options.setExperimentalOption("useAutomationExtension", false);
 			driver = new ChromeDriver(options);
